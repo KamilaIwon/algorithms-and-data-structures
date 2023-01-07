@@ -83,3 +83,27 @@ class BinarySearchTree:
             else:
                 return self._contains(node.left_child, value)
         return node
+
+    def find_parent(self, value: Any) -> 'BinaryNode' :
+        if self.root == self._find_parent(self.root, value):
+            return None
+
+        return self._find_parent(self.root, value)
+
+    def _find_parent(self, node: 'BinaryNode', value: Any) -> 'BinaryNode':
+        if node:
+            if node.right_child and node.right_child.value == value or \
+                    node.left_child and node.left_child.value == value:
+                return node
+            elif value < node.value:
+                if node.left_child:
+                    return self._find_parent(node.left_child, value)
+                else:
+                    return None
+            elif value > node.value:
+                if node.right_child:
+                    return self._find_parent(node.right_child, value)
+                else:
+                    return None
+        return node
+

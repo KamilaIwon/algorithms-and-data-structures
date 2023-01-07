@@ -1,5 +1,7 @@
 from drzewo_binarne import BinaryTree
 from drzewo_binary_search import BinarySearchTree
+from  graf import Graph
+from graf_wezel import Vertex
 
 '''
 drzewo binarne
@@ -32,8 +34,8 @@ binaryTree.insert_list([1, 6, 4, 7, 14, 13])
 binaryTree.insert(2)
 binaryTree.insert(25)
 binaryTree.insert(30)
-
-
-
-
+print(binaryTree.contains(60))
 binaryTree.show()
+print(binaryTree.find_parent(35))
+
+
