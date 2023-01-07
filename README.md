@@ -1,2 +1,2 @@
 # algorithms and data structures
- AISS 2022-23
+ AISD 2022-23
