@@ -1,7 +1,8 @@
 from drzewo_binarne import BinaryTree
 from drzewo_binary_search import BinarySearchTree
-from  graf import Graph
+from graf import Graph
 from graf_wezel import Vertex
+from g_path import GraphPath
 
 '''
 drzewo binarne
@@ -26,7 +27,7 @@ tree.traverse_pre_order(print)
 tree.show()
 
 drzewo BST
-'''
+
 binaryTree = BinarySearchTree(8)
 binaryTree.insert(3)
 binaryTree.insert(10)
@@ -37,5 +38,56 @@ binaryTree.insert(30)
 print(binaryTree.contains(60))
 binaryTree.show()
 print(binaryTree.find_parent(35))
+
+GRAF
+'''
+# tworzymy instancję klasy Graph
+g = Graph()
+
+# tworzymy wierzchołki
+a = g.create_vertex('A')
+b = g.create_vertex('B')
+c = g.create_vertex('C')
+d = g.create_vertex('D')
+e = g.create_vertex('E')
+f = g.create_vertex('F')
+
+# dodajemy krawędzie skierowane
+g.add_undirected_edge(a, b, 6)
+g.add_undirected_edge(a, d, 1)
+g.add_undirected_edge(b, d, 2)
+g.add_undirected_edge(b, e, 2)
+g.add_undirected_edge(c, e, 5)
+g.add_undirected_edge(c, b, 5)
+g.add_undirected_edge(d, e, 1)
+
+graf2 = Graph()
+h = graf2.create_vertex(1)
+i = graf2.create_vertex(2)
+j = graf2.create_vertex(3)
+k = graf2.create_vertex(4)
+l = graf2.create_vertex(5)
+graf2.add_directed_edge(h, j)
+graf2.add_directed_edge(j, k)
+graf2.add_directed_edge(k, l)
+graf2.add_directed_edge(l, j)
+graf2.add_directed_edge(i, l)
+graf2.add_directed_edge(i, k)
+graf2.add_directed_edge(h, i)
+graf2.show()
+
+
+
+# testujemy metodę traverse_depth_first
+print('Przechodzenie w głąb:')
+g.traverse_depth_first(print)
+print('\nPrzechodzenie wszerz:')
+g.traverse_breadth_first(print)
+
+#g.show()
+sciezka = GraphPath(g, a, c)
+print(sciezka.draw_path())
+print(GraphPath(graf2, h, l).draw_path())
+
 
 
